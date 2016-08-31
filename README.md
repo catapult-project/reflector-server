@@ -11,8 +11,11 @@ Reflector Reference Server
 Create a config.json file if you want to override config defaults (i.e. App Engine project, bucket, etc).
 Note that the Cloud storage bucket has to be publically readable (Add read permissions for the 'allUsers' user).
 
-> npm install
-> npm start
+```sh
+npm install
+npm start
 
 Run Chrome with:
-> ./chrome --enable-reflector-for-recipient=http://localhost:8080/reflector/upload http://localhost:8080/reflector/test
+
+```sh
+./chrome --enable-reflector-for-recipient=http://localhost:8080/reflector/upload http://localhost:8080/reflector/test
