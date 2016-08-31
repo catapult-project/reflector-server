@@ -15,6 +15,7 @@ Note that the Cloud storage bucket has to be publically readable (Add read permi
 npm install
 npm start
 
+
 Run Chrome with:
 
 ```sh
