@@ -33,6 +33,6 @@ npm start
 * Run Chrome:
 ```sh
 ./chrome --allow-insecure-localhost \
-  --enable-reflector-for-recipient=http://localhost:8080/reflector/upload \
-  http://localhost:8080/reflector/test
+  --enable-reflector-for-recipient=https://localhost:8080/reflector/upload \
+  https://localhost:8080/reflector/test
 ```
