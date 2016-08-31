@@ -5,13 +5,14 @@
 'use strict';
 
 var express = require('express');
+var config = require('../config');
 
 var router = express.Router();
 
 router.use(function (req, res, next) {
   res.set('Content-Type', 'text/html');
-  res.set('x-trace-data-to', 'http://localhost:8080/reflector/upload');
-  res.set('x-trace-duration', '3');
+  res.set('x-trace-data-to', config.get('REFLECTOR_DESTINATION'));
+  res.set('x-trace-duration', config.get('REFLECTOR_DURATION'));
   next();
 });
 

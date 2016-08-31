@@ -13,6 +13,8 @@ var path = require('path');
 var express = require('express');
 var config = require('./config');
 var logging = require('./lib/logging');
+var https = require('https');
+var fs = require('fs');
 
 var app = express();
 
@@ -46,7 +48,13 @@ app.use(function (err, req, res, next) {
 });
 
 if (module === require.main) {
-  var server = app.listen(config.get('PORT'), function () {
+  var privateKey  = fs.readFileSync('sslcert/server.key', 'utf8');
+  var certificate = fs.readFileSync('sslcert/server.crt', 'utf8');
+
+  var credentials = {key: privateKey, cert: certificate};
+
+  var httpsServer = https.createServer(credentials, app);
+  var server = httpsServer.listen(config.get('PORT'), function () {
     var port = server.address().port;
     console.log('Reflector server listening on port %s', port);
   });
