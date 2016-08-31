@@ -10,6 +10,10 @@ Reflector Reference Server
 
 * Install the Google Cloud SDK: https://cloud.google.com/sdk/docs/
 * Create an App Engine project for testing: https://console.cloud.google.com/project
+* Authenticate with Google Cloud:
+```sh
+gcloud init
+```
 * Create a config.json file to override config defaults (i.e. App Engine project ID, Cloud Storage bucket, etc).
 * Note that the Cloud storage bucket has to be publically readable (Add read permissions for the 'allUsers' user in https://console.cloud.google.com/storage).
 * Install OpenSSL
