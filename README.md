@@ -11,7 +11,7 @@ Reflector Reference Server
 * Install the Google Cloud SDK: https://cloud.google.com/sdk/docs/
 * Create an App Engine project for testing: https://console.cloud.google.com/project
 * Create a config.json file to override config defaults (i.e. App Engine project ID, Cloud Storage bucket, etc).
-* Note that the Cloud storage bucket has to be publically readable (Add read permissions for the 'allUsers' user in https://console.cloud.google.com/project).
+* Note that the Cloud storage bucket has to be publically readable (Add read permissions for the 'allUsers' user in https://console.cloud.google.com/storage).
 * Install OpenSSL
 * Generate a self-signed SSL certificate for localhost testing (leave prompts at defaults):
 ```sh
@@ -32,5 +32,7 @@ npm start
 
 * Run Chrome:
 ```sh
-./chrome --allow-insecure-localhost --enable-reflector-for-recipient=http://localhost:8080/reflector/upload http://localhost:8080/reflector/test
+./chrome --allow-insecure-localhost \
+  --enable-reflector-for-recipient=http://localhost:8080/reflector/upload \
+  http://localhost:8080/reflector/test
 ```
