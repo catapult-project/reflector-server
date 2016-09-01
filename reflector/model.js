@@ -44,7 +44,6 @@ function toDatastore (obj, nonIndexed) {
 
 function list (limit, token, cb) {
   var q = ds.createQuery([kind])
-    .autoPaginate(false)
     .limit(limit)
     .order('imageUrl', {descending: true})
     .start(token);

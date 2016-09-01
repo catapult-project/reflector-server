@@ -48,14 +48,21 @@ app.use(function (err, req, res, next) {
 });
 
 if (module === require.main) {
-  var privateKey  = fs.readFileSync('sslcert/server.key', 'utf8');
-  var certificate = fs.readFileSync('sslcert/server.crt', 'utf8');
+  var server;
 
-  var credentials = {key: privateKey, cert: certificate};
+  if (process.env.NODE_ENV !== 'production') {
+    var privateKey  = fs.readFileSync('sslcert/server.key', 'utf8');
+    var certificate = fs.readFileSync('sslcert/server.crt', 'utf8');
 
-  var httpsServer = https.createServer(credentials, app);
-  var server = httpsServer.listen(config.get('PORT'), function () {
-    var port = server.address().port;
+    var credentials = {key: privateKey, cert: certificate};
+
+    server = https.createServer(credentials, app);
+  } else {
+    server = app;
+  }
+
+  var runningServer = server.listen(config.get('PORT'), function () {
+    var port = runningServer.address().port;
     console.log('Reflector server listening on port %s', port);
   });
 }
