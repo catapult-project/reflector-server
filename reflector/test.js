@@ -20,6 +20,10 @@ router.get('/', function list (req, res, next) {
     res.render('traces/test.jade');
 });
 
+router.get('/mixed_iframe', function list (req, res, next) {
+    res.render('traces/mixed_iframe.jade');
+});
+
 router.use(function handleRpcError (err, req, res, next) {
   err.response = err.message;
   next(err);

@@ -1,0 +1,18 @@
+//- Copyright 2016 The Chromium Authors. All rights reserved.
+ Use of this source code is governed by a BSD-style license that can be
+ found in the LICENSE file.
+
+extends ../base.jade
+
+block content
+  h3 Hello World!
+
+  script(type='text/javascript').
+    function sleep(delay) {
+      var start = new Date().getTime();
+      while (new Date().getTime() < start + delay);
+    }
+    sleep(100);
+    document.write("<p>Hello from main frame Javascript!</p>");
+
+  iframe(src='http://www.w3schools.com')

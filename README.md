@@ -40,3 +40,8 @@ npm start
   --enable-reflector-for-recipient=https://localhost:8080/reflector/upload \
   https://localhost:8080/reflector/test
 ```
+
+* For testing only, to allow insecure content in iframe, use flag
+```sh
+--allow-running-insecure-content
+```
